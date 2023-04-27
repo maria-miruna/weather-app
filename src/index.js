@@ -96,7 +96,7 @@ clearButton.addEventListener("click", deleteContent);
 
 function apiRequest(query) {
   let apiKey = `2ad97b46f52d1ea9b55ab2f9586e1ccf`;
-  let apiUrl = `http://api.openweathermap.org/data/2.5/weather?${query}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?${query}&appid=${apiKey}&units=metric`;
   return axios.get(apiUrl);
 }
 
