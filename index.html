@@ -30,118 +30,115 @@
   </head>
   <body>
     <div class="container">
-      <div class="app">
-        <div class="search-bar">
-          <i class="fas fa-search p-1 search-element"></i>
-          <form id="search-city">
-            <input
-              class="search-input w-100"
-              type="text"
-              placeholder="Search a city"
-              id="search-text-input"
-            />
-          </form>
-          <button class="location-element" id="current-location">
-            <i class="fa-sharp fa-solid fa-location-dot"></i>
-          </button>
-          <button class="search-element" id="clear-button">
-            <i class="fa-solid fa-xmark p-1"></i>
-          </button>
+      <div class="search-bar">
+        <i class="fas fa-search p-1 search-element"></i>
+        <form id="search-city">
+          <input
+            class="search-input w-100"
+            type="text"
+            placeholder="Search a city"
+            id="search-text-input"
+          />
+        </form>
+        <button class="location-element" id="current-location">
+          <i class="fa-sharp fa-solid fa-location-dot"></i>
+        </button>
+        <button class="search-element" id="clear-button">
+          <i class="fa-solid fa-xmark p-1"></i>
+        </button>
+      </div>
+      <div class="row">
+        <div class="col-md-5 col-sm-12 text-center">
+          <h1>Coimbra</h1>
+          <p class="days">Thursday 12:15, 30 March</p>
         </div>
-        <div class="row">
-          <div class="col-md-5 col-sm-12 text-center">
-            <h1>Coimbra</h1>
-            <p class="days">Thursday 12:15, 30 March</p>
-          </div>
-        </div>
-        <div class="row align-items-center mt-2">
-          <div class="col-md-5 col-sm-12">
-            <div class="d-flex flex-row gap-3 justify-content-center">
-              <p class="emoji">⛅️</p>
-              <div class="d-flex flex-column">
-                <div class="current-information">
-                  <span class="temperature" id="current-temperature"> 17</span>°
-                  <span>
-                    <a href="#" class="current-selected" id="celsius-link">C</a
-                    >/<a href="#" id="fahrenheit-link">F</a>
-                  </span>
-                </div>
-                <div class="weather-information" id="weather-information">
-                  Partly cloudly
-                </div>
+      </div>
+      <div class="row align-items-center mt-2">
+        <div class="col-md-5 col-sm-12">
+          <div class="d-flex flex-row gap-3 justify-content-center">
+            <p class="emoji">⛅️</p>
+            <div class="d-flex flex-column">
+              <div class="current-information">
+                <span class="temperature" id="current-temperature"> 17</span>°
+                <span>
+                  <a href="#" class="current-selected" id="celsius-link">C</a
+                  >/<a href="#" id="fahrenheit-link">F</a>
+                </span>
               </div>
-            </div>
-          </div>
-          <div class="col-md-7 col-sm-12">
-            <div class="row py-3 grid text-center highlight-cell">
-              <div class="col-4">
-                <p>Max</p>
-                <p id="maximum-temperature">22º</p>
-              </div>
-              <div class="col-4">
-                <p>Wind</p>
-                <p id="wind">11km/h</p>
-              </div>
-              <div class="col-4">
-                <p>Sunrise</p>
-                <p id="sunrise">07:19</p>
-              </div>
-              <div class="col-4">
-                <p>Min</p>
-                <p id="minimum-temperature">14°</p>
-              </div>
-              <div class="col-4">
-                <p>Humidity</p>
-                <p id="humidity">60%</p>
-              </div>
-              <div class="col-4">
-                <p>Sunset</p>
-                <p id="sunset">19:55</p>
+              <div class="weather-information" id="weather-information">
+                Partly cloudly
               </div>
             </div>
           </div>
         </div>
-        <p class="p-3">Five day forecast</p>
-        <div
-          class="row d-flex flex-nowrap overflow-auto gap-2 text-center pb-3"
-        >
-          <div class="weather-item col">
-            <p>Fri 31</p>
-            <p>🌧️</p>
-            <p><strong>20°</strong>/ 13°</p>
-          </div>
-          <div class="weather-item col">
-            <p>Sat 01</p>
-            <p>⛅️</p>
-            <p><strong>21°</strong>/ 11°</p>
-          </div>
-          <div class="weather-item col">
-            <p>Sun 02</p>
-            <p>⛅️</p>
-            <p><strong>23°</strong>/ 9°</p>
-          </div>
-          <div class="weather-item col">
-            <p>Mon 03</p>
-            <p>⛅️</p>
-            <p><strong>24°</strong>/ 9°</p>
-          </div>
-          <div class="weather-item col">
-            <p>Tue 04</p>
-            <p>⛅️</p>
-            <p><strong>24°</strong>/ 11°</p>
+        <div class="col-md-7 col-sm-12">
+          <div class="row py-3 grid text-center highlight-cell">
+            <div class="col-4">
+              <p>Max</p>
+              <p id="maximum-temperature">22º</p>
+            </div>
+            <div class="col-4">
+              <p>Wind</p>
+              <p id="wind">11km/h</p>
+            </div>
+            <div class="col-4">
+              <p>Sunrise</p>
+              <p id="sunrise">07:19</p>
+            </div>
+            <div class="col-4">
+              <p>Min</p>
+              <p id="minimum-temperature">14°</p>
+            </div>
+            <div class="col-4">
+              <p>Humidity</p>
+              <p id="humidity">60%</p>
+            </div>
+            <div class="col-4">
+              <p>Sunset</p>
+              <p id="sunset">19:55</p>
+            </div>
           </div>
         </div>
       </div>
-      <p class="p-2">
-        <a
-          href="https://github.com/maria-miruna/weather-app"
-          target="_blank"
-          class="link"
-          >Open-sourced code</a
-        >
-        by Maria Botiş
-      </p>
+      <p class="p-3">Five day forecast</p>
+      <div class="row d-flex flex-nowrap overflow-auto gap-2 text-center pb-3">
+        <div class="weather-item col">
+          <p>Fri 31</p>
+          <p>🌧️</p>
+          <p><strong>20°</strong>/ 13°</p>
+        </div>
+        <div class="weather-item col">
+          <p>Sat 01</p>
+          <p>⛅️</p>
+          <p><strong>21°</strong>/ 11°</p>
+        </div>
+        <div class="weather-item col">
+          <p>Sun 02</p>
+          <p>⛅️</p>
+          <p><strong>23°</strong>/ 9°</p>
+        </div>
+        <div class="weather-item col">
+          <p>Mon 03</p>
+          <p>⛅️</p>
+          <p><strong>24°</strong>/ 9°</p>
+        </div>
+        <div class="weather-item col">
+          <p>Tue 04</p>
+          <p>⛅️</p>
+          <p><strong>24°</strong>/ 11°</p>
+        </div>
+      </div>
     </div>
+    <p class="footer p-2">
+      <a
+        href="https://github.com/maria-miruna/weather-app"
+        target="_blank"
+        class="link"
+        >Open-sourced code</a
+      >
+      by Maria Botiş
+    </p>
+
     <script src="src/index.js"></script>
   </body>
 </html>
