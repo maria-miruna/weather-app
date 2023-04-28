@@ -65,7 +65,7 @@ a {
   text-transform: capitalize;
 }
 .icon {
-  font-size: 72px;
+  width: 130px;
 }
 .row {
   row-gap: 20px;
