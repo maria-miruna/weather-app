@@ -5,10 +5,8 @@ function showFormatDate(response) {
   let days = dateSearchedCity.toLocaleDateString(undefined, {
     weekday: "long",
   });
-  let hours = dateSearchedCity.getUTCHours();
-  hours = showTwoDecimalNumber(hours);
-  let minutes = dateSearchedCity.getUTCMinutes();
-  minutes = showTwoDecimalNumber(minutes);
+  let hours = showTwoDecimalNumber(dateSearchedCity.getUTCHours());
+  let minutes = showTwoDecimalNumber(dateSearchedCity.getUTCMinutes());
   let dates = dateSearchedCity.getUTCDate();
   let months = dateSearchedCity.toLocaleDateString(undefined, {
     month: "long",
@@ -48,7 +46,6 @@ function showHourSunriseOrSunset(response, timestamp, label) {
 }
 
 function showCurrentWeather(response) {
-  console.log(response.data);
   let temperature = Math.round(response.data.main.temp);
   showElement("#current-temperature", temperature);
 
@@ -60,6 +57,13 @@ function showCurrentWeather(response) {
 
   let humidity = response.data.main.humidity;
   showElement("#humidity", `${humidity}%`);
+
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
   showHourSunriseOrSunset(response, response.data.sys.sunrise, "sunrise");
   showHourSunriseOrSunset(response, response.data.sys.sunset, "sunset");
@@ -73,7 +77,6 @@ function showCurrentCity(response) {
 }
 
 function showPosition(position) {
-  console.log(position);
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
   apiRequest(`lat=${lat}&lon=${lon}`).then(showCurrentWeather);
