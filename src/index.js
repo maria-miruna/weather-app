@@ -84,6 +84,8 @@ function showCurrentWeather(response) {
   showFormatDate(response);
 
   getForecast(response.data.coord);
+
+  setTemperatureUnitLinks(true);
 }
 
 function getForecast(coordinates) {
@@ -98,6 +100,12 @@ function showCurrentCity(response) {
 }
 
 function showForecast(response) {
+  let maximumTemperature = Math.round(response.data.daily[0].temp.max);
+  showElement("#maximum-temperature", `${maximumTemperature}º`);
+
+  let minimumTemperature = Math.round(response.data.daily[0].temp.min);
+  showElement("#minimum-temperature", `${minimumTemperature}º`);
+
   let forecast = response.data.daily;
 
   let forecastElement = document.querySelector("#forecast");
