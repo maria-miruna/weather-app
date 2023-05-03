@@ -29,6 +29,7 @@ a {
   .container {
     border: 1px solid rgba(8, 0, 0, 0.3);
     border-radius: 8px;
+    padding: 0 50px 20px 50px !important;
   }
 
   body {
@@ -44,7 +45,7 @@ a {
 }
 
 .container {
-  padding: 0 50px 20px 50px;
+  padding: 0 20px 20px 20px;
 }
 
 .days {
