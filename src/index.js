@@ -36,10 +36,11 @@ function showTwoDecimalNumber(number) {
 
 function search(event) {
   event.preventDefault();
-  let searchInput = document.querySelector("#search-text-input");
+  showCity(document.querySelector("#search-text-input").value);
+}
 
-  apiRequest(`q=${searchInput.value}`).then(showCurrentWeather);
-
+function showCity(city) {
+  apiRequest(`q=${city}`).then(showCurrentWeather);
   setTemperatureUnitLinks(true);
 }
 
@@ -73,7 +74,7 @@ function showCurrentWeather(response) {
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    setWeatherIcon(response.data.weather[0].icon)
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
@@ -86,6 +87,47 @@ function showCurrentWeather(response) {
   getForecast(response.data.coord);
 
   setTemperatureUnitLinks(true);
+}
+
+function setWeatherIcon(icon) {
+  return {
+    "01d":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/289/original/Sun.png?1683133617", // clear sky day
+    "01n":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/290/original/moon.png?1683133683", // clear sky night
+    "02d":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/291/original/few.png?1683133743", // few clouds day
+    "02n":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/292/original/few-night.png?1683133774", // few clouds night
+    "03d":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/311/original/cloud.png?1683136885", // scattered clouds day
+    "03n":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/311/original/cloud.png?1683136885", // scattered clouds night
+    "04d":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/313/original/cloud-icon.png?1683137089", // broken clouds day
+    "04n":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/313/original/cloud-icon.png?1683137089", // broken clouds night
+    "09d":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/082/original/rain.png?1683047905", // shower rain day
+    "09n":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/082/original/rain.png?1683047905", // shower rain night
+    "10d":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/084/original/light-rain.png?1683048003", // rain day
+    "10n":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/086/original/light-rain-night.png?1683048147", // rain night
+    "11d":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/295/original/storm.png?1683134159", // thunderstorm day
+    "11n":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/296/original/storm-night.png?1683134166", // thunderstorm night
+    "13d":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/297/original/snow.png?1683134271", // snow day
+    "13n":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/297/original/snow.png?1683134271", // snow night
+    "50d":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/298/original/haze.png?1683134404", // mist day
+    "50n":
+      "https://s3.amazonaws.com/shecodesio-production/uploads/files/000/080/301/original/fog.png?1683134489", // mist night
+  }[icon];
 }
 
 function getForecast(coordinates) {
@@ -114,14 +156,13 @@ function showForecast(response) {
 
   forecast.forEach(function (forecastDay, index) {
     if (index > 0 && index < 6) {
+      image = setWeatherIcon(forecastDay.weather[0].icon);
       forecastHTML =
         forecastHTML +
         `<div class="weather-item col">
     <p>${showFormatDay(forecastDay.dt)}</p>
     <img
-      src="https://openweathermap.org/img/wn/${
-        forecastDay.weather[0].icon
-      }@2x.png"
+      src=${image}
       alt=""
       width="50"
     />
@@ -190,6 +231,8 @@ function ShowCelsiusTemperature(event) {
 
   setTemperatureUnitLinks(true);
 }
+
+showCity("Coimbra");
 
 let celsiusTemperature = null;
 

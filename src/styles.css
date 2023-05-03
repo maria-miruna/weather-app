@@ -66,6 +66,7 @@ a {
 }
 .icon {
   width: 130px;
+  margin-right: 10px;
 }
 .row {
   row-gap: 20px;
