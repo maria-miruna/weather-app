@@ -160,7 +160,7 @@ function showForecast(response) {
       forecastHTML =
         forecastHTML +
         `<div class="weather-item col">
-    <p>${showFormatDay(forecastDay.dt)}</p>
+    <p class="week-days">${showFormatDay(forecastDay.dt)}</p>
     <img
       src=${image}
       alt=""

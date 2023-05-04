@@ -51,6 +51,7 @@ a {
 .days {
   font-size: 13px;
   padding-left: 30px;
+  text-transform: capitalize;
 }
 .current-information {
   font-family: "Roboto", sans-serif;
@@ -110,6 +111,9 @@ a {
 .weather-item {
   min-width: 110px;
   padding: 1em 0;
+}
+.week-days {
+  text-transform: capitalize;
 }
 .link {
   color: palevioletred;
